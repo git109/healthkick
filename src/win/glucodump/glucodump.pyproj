@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{826387a0-8ec4-40ca-b646-980de7143172}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>C:\workspace\healthkick\src\win\healthkick\glucodump\main.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <AssemblyName>glucodump</AssemblyName>
+    <Name>glucodump</Name>
+    <RootNamespace>glucodump</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="contourusb.py" />
+    <None Include="main.py" />
+    <None Include="test_contourusb.py" />
+    <None Include="test_usbcomm.py" />
+    <None Include="usbcomm.py" />
+    <None Include="__init__.py" />
+  </ItemGroup>
+</Project>

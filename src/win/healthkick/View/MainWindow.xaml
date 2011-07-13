@@ -1,0 +1,1069 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:healthkick"
+    xmlns:tb="clr-namespace:Hardcodet.Wpf.TaskbarNotification;assembly=Hardcodet.Wpf.TaskbarNotification" xmlns:ViewModel="clr-namespace:healthkick.ViewModel" x:Name="window" mc:Ignorable="d" x:Class="healthkick.MainWindow" Title="MainWindow" Height="250" Width="250"
+    AllowsTransparency="True" WindowStyle="None" Background="Transparent"
+    TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType"
+    WindowStartupLocation="Manual" Loaded="Window_Loaded" Topmost="true" ShowInTaskbar="false">
+  <Window.Resources>
+    <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+    <ViewModel:DateTimeToStringConverter x:Key="DateTimeToStringConverter" />
+    <Storyboard x:Key="Peel">
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="31.8966659146367,18" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.2299992479686,37" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.85499999999989,61.9062500000044" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.32426065558942,83.0475255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.63037529994529,104.547450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.595942954761,124.885108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.0259672558202,149.580090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="31.9122825431297,18.1294910865626" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.354999247969,37.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.28645412760999,62.1936230747053" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.32426065558942,83.2975255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.63037529994529,104.797450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.595942954761,125.135108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.0259672558202,149.830090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="31.8966659146367,18" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.2299992479686,37" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.85499999999989,61.9062500000044" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.32426065558942,83.0475255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.63037529994529,104.547450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.595942954761,124.885108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.0259672558202,149.580090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="24.6914248832155,23.5273176130855" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.354999247969,37.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.28645412760999,62.1936230747053" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.32426065558942,83.2975255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.63037529994529,104.797450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.595942954761,125.135108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.0259672558202,149.830090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="18.7779743067645,29.877132078217" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.1926395486394,37.1897363522375" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.53645412760999,62.1936230747053" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.57426065558942,83.2975255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.88037529994529,104.797450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.845942954761,125.135108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2759672558202,149.830090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="31.9122825431297,18.1294910865626" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.354999247969,37.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.28645412760999,62.1936230747053" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.32426065558942,83.2975255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.63037529994529,104.797450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.595942954761,125.135108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.0259672558202,149.830090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="10.2913313743388,43.411468098019" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.53645412760999,62.1936230747053" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.57426065558942,83.2975255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.88037529994529,104.797450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.845942954761,125.135108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2759672558202,149.830090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="5.7300001186746,48.8333333333333" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="6.89666678534128,49.5" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.19219271999052,61.8960975269281" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.22999924796995,83.000000000001" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.53611389232582,104.499924712364" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.5016815471415,124.837582858204" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.9317058482007,149.532564995259" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.1926395486394,37.1897363522375" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.53645412760999,62.1936230747053" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.57426065558942,83.2975255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.88037529994529,104.797450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.845942954761,125.135108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2759672558202,149.830090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="156.926683662689,17.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="149.429,27"/>
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="140.694634849496,36.7162735448573" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="127.429,61.0003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="121.429,82.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="110.095666666667,91.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="148.42806950243,135.500333389342" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="139.42806938976,174.500333389342" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="156.926683662689,17.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="149.429,27"/>
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="140.694634849496,36.7162735448573" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="127.429,61.0003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="121.429,82.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="110.095666666667,91.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="148.42806950243,135.500333389342" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="139.42806938976,174.500333389342" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point2)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="156.926683662689,17.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="149.429,27"/>
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="140.694634849496,36.7162735448573" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="127.429,61.0003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="121.429,82.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="110.095666666667,91.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="148.42806950243,135.500333389342" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="139.42806938976,174.500333389342" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point3)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="156.926683662689,17.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="149.429,27"/>
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="140.694634849496,36.7162735448573" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="127.429,61.0003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="121.429,82.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="110.095666666667,91.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="148.42806950243,135.500333389342" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="139.42806938976,174.500333389342" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point2)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="286.679,70.9375"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="288.991500000004,82.3750000000018" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.4" Value="286.512333333333,96.0000000000003"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="283.944634849495,109.466273544858" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="274.429,131.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.7" Value="269.429,145.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.8" Value="259.434023964295,170.466347109931" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.9" Value="148.42806950243,135.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:1" Value="171.579591665817,182.487997208398" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point3)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="286.679,70.9375"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="288.991500000004,82.3750000000018" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.4" Value="286.512333333333,96.0000000000003"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="283.944634849495,109.466273544858" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="274.429,131.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.7" Value="269.429,145.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.8" Value="259.434023964295,170.466347109931" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.9" Value="148.42806950243,135.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:1" Value="139.42806938976,174.500333389342" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point1)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="286.679,70.9375"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="288.991500000004,82.3750000000018" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.4" Value="286.512333333333,96.0000000000003"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="283.944634849495,109.466273544858" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="274.429,131.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.7" Value="269.429,145.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.8" Value="259.434023964295,170.466347109931" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.9" Value="148.42806950243,135.500333389342" />
+      	<EasingPointKeyFrame KeyTime="0:0:1" Value="139.42806938976,174.500333389342" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point2)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="159.732261798194,47.1620070329299" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="126.760466765052,79.5003333893418" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="113.666920857908,108.344692525788" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="98.782094500018,132.240828315648" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="79.6581482130344,116.139064860312" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="41.7267394032208,122.46351468042" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="18.6455256180616,164.789156941522" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point3)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="170.760466765053,62.8336667226753" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="153.760466765053,110.833666722675" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="132.429,135.500333389342" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="123.62972265735,163.763938664503" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="81.6581482130343,174.805731526979" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="35.0774043964907,204.981924034881" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="0.978737155740689,239.455823608188" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point1)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="177.093800098386,71.8336667226752" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="164.156245765873,122.897904081651" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="145.095666666667,153.833666722676" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="145.963055990683,192.097271997837" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="82.5783494886188,201.798302277454" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="28.4280693897606,287.500333389342" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="-9.38257479614791,283.246726940223" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point2)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="195.093800098385,93.1670000560085" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="172.338672920876,136.415595614383" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="163.134423849408,166.360407188391" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="162.296389324017,194.097271997837" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="110.215129114234,241.808047474515" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="100.944571424761,337.537576695545" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="64.4781254667856,350.059854721445" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point3)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="220.093800098384,97.8336667226752" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="207.427133431718,141.833666722675" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="198.228572761362,171.741510021558" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="183.62972265735,197.097271997837" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="177.664124164191,242.438411914235" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="170.07740439649,288.981924034881" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="129.978452106719,325.455823608188" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point1)"
+          Storyboard.TargetName="path">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="263.890634308445,106.00907577522" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="252.76046676505,148.833666722675" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="248.22857276136,179.408176688226" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="252.316071277288,206.756289772517" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="248.997457497525,243.105078580902" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="270.42806938976,218.500333389342" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="237.423934953986,296.912365976822" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[10].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="151.468481752115,124.078179364934" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="146.753503784273,130.664420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.753503784267,144.164420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.253503784266,157.664420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.7535037842699,162.914420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2535037842699,149.414420670279" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[10].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="155.118560345659,116.945121044184" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="146.729999247966,130.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.72999924796,144.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247959,157.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.7299992479629,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.229999247963,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[10].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="157.72710781833,109.726768278856" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="146.729999247966,130.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.72999924796,144.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247959,157.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.7299992479629,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.229999247963,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[11].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="161.040928674983,100.556788358987" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="157.72710781833,109.726768278856" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="146.729999247966,130.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.72999924796,144.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247959,157.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.7299992479629,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.229999247963,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[11].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="162.673884603615,91.2491568245171" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="157.729999247968,110" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="146.729999247973,131" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.729999247967,144.5" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247966,158" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.72999924797,163.25" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.22999924797,149.75" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[11].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="162.673884603615,82.7500755229122" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="157.729999247968,110" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="146.729999247973,131" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.729999247967,144.5" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247966,158" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.72999924797,163.25" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.22999924797,149.75" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[12].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="162.673884603615,82.7500755229122" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="157.729999247968,110" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="146.729999247973,131" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.729999247967,144.5" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247966,158" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.72999924797,163.25" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.22999924797,149.75" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[12].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="162.896665914637,83" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="157.729999247968,110" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="147.298545120362,130.712626925299" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.729999247967,144.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247966,157.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.72999924797,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.22999924797,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[12].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="162.896665914637,83" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="157.729999247968,110" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="147.298545120362,130.712626925299" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.729999247967,144.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247966,157.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.72999924797,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.22999924797,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="31.8966659146367,18" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.2299992479686,37" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.85499999999989,61.9062500000044" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.32426065558942,83.0475255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.63037529994529,104.547450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.595942954761,124.885108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.0259672558202,149.580090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="31.8966659146367,18" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="14.2299992479686,37" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.85499999999989,61.9062500000044" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.32426065558942,83.0475255477782" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.63037529994529,104.547450260141" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.595942954761,124.885108405981" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.0259672558202,149.580090543036" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="162.896665914637,83" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="157.729999247968,110" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="147.298545120362,130.712626925299" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.729999247967,144.25" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.229999247966,157.75" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.72999924797,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.22999924797,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="1.92626677953805,69.8968098135183" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="2.89666678534128,68.3333333333333" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="0.221905254789643,69.5361661535202" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.22999924796995,83.000000000001" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.53611389232582,104.499924712364" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.5016815471415,124.837582858204" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.9317058482007,149.532564995259" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.42388460361407,73.9395101601368" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.42388460361407,83.0000752876383" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.72999924796994,104.500000000001" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.6955669027856,124.837658145841" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.1255912038448,149.532640282896" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="3.7300001186746,60.8333333333332" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="3.56333345200794,60.8333333333334" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="2.19219271999052,61.8960975269281" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.22999924796995,83.000000000001" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.53611389232582,104.499924712364" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.5016815471415,124.837582858204" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.9317058482007,149.532564995259" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[9].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="139.090586550136,140.226613420282" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.352649319991,144.353185921718" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="111.85264931999,157.853185921718" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.352649319994,163.103185921718" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.852649319994,149.603185921718" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[9].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="143.220928732843,135.598991282622" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.753503784267,144.164420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.253503784266,157.664420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.7535037842699,162.914420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2535037842699,149.414420670279" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[9].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="146.753503784273,130.664420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.753503784267,144.164420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.253503784266,157.664420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.7535037842699,162.914420670279" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2535037842699,149.414420670279" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[4].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.42388460361407,89.7594192602605" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.72999924796994,104.500000000001" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.6955669027856,124.837658145841" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.1255912038448,149.532640282896" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[4].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="3.52690456276123,97.1675978923534" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.76443159315419,104.662341854162" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.7299992479699,125.000000000002" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.1600235490291,149.694982137057" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="2.42388460361407,83.0000752876383" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.72999924796994,104.500000000001" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.6955669027856,124.837658145841" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.1255912038448,149.532640282896" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[8].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="120.582140713141,154.501411379502" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.040822059073,157.763970060737" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.540822059077,163.013970060737" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.040822059077,149.513970060737" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[8].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="128.011562966155,149.876043508449" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="111.85264931999,157.853185921718" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.352649319994,163.103185921718" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.852649319994,149.603185921718" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[8].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.7" Value="134.352649319991,144.353185921718" />
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="111.85264931999,157.853185921718" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.352649319994,163.103185921718" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.852649319994,149.603185921718" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[5].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="7.81518685471962,111.531481491356" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.7299992479699,125.000000000002" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.1600235490291,149.694982137057" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[5].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="10.8189539537467,118.473337981556" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.7999749469111,125.055017862945" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2299992479702,149.75" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[7].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="93.46861672406,163" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.4238846036141,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.9238846036141,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[7].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="103.332606282816,161.090279045282" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.540822059077,163.013970060737" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.040822059077,149.513970060737" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[4].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="5.76443159315419,104.662341854162" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.7299992479699,125.000000000002" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.1600235490291,149.694982137057" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[7].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.8" Value="112.040822059073,157.763970060737" />
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.540822059077,163.013970060737" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.040822059077,149.513970060737" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[5].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="14.7999749469111,125.055017862945" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2299992479702,149.75" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[6].(BezierSegment.Point1)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="27.3600190701435,145.820090405182" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="38.2299992479702,149.75" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[6].(BezierSegment.Point2)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="49.6475534461391,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.9238846036141,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[6].(BezierSegment.Point3)"
+          Storyboard.TargetName="path1">
+        <EasingPointKeyFrame KeyTime="0:0:0.9" Value="82.4238846036141,163" />
+        <EasingPointKeyFrame KeyTime="0:0:1" Value="37.9238846036141,149.5" />
+      </PointAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+          Storyboard.TargetName="path">
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0" />
+      </DoubleAnimationUsingKeyFrames>
+      <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+          Storyboard.TargetName="path1">
+        <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Hidden}" />
+      </ObjectAnimationUsingKeyFrames>
+      <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+          Storyboard.TargetName="path">
+        <DiscreteObjectKeyFrame KeyTime="0:0:0.8" Value="{x:Static Visibility.Visible}" />
+        <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Hidden}" />
+      </ObjectAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+          Storyboard.TargetName="path1">
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+      </DoubleAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Offset)"
+          Storyboard.TargetName="path">
+        <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.638" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0.638" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0.668" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0.797" />
+        <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0.914" />
+      </DoubleAnimationUsingKeyFrames>
+      <ColorAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)"
+          Storyboard.TargetName="path">
+        <EasingColorKeyFrame KeyTime="0:0:0.9" Value="White" />
+      </ColorAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point2)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="75.9041380000001,57.7309372888984" />
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="78.4041380000002,73.6059689999999" />
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="75.6541380000002,92.4809690000004" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="66.7373333333333,108.647333333334" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="55.3623333333336,125.980666666667" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="44.904,141.563968288899" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point3)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="90.654,56.8139682888984" />
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="93.154,72.6889999999999" />
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="90.404,91.5640000000004" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="82.5706666666666,110.980666666667" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="75.3623333333336,121.980666666667" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="64.904,137.563968288899" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point1)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="90.654,56.8139682888984" />
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="93.154,72.6889999999999" />
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="90.404,91.5640000000004" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="87.5706666666667,101.564" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="78.1918392520674,118.036506901159" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="66.654,134.313968288899" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point2)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="93.252345272263,62.8128664999859" />
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="93.8206666666667,78.314" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="90.9873333333333,92.814" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="83.9456666666667,110.355666666667" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="82.6540020000003,124.314104288899" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point3)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="91.002343272263,60.3127304999859" />
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="93.0915000000018,71.7514999999985" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="90.5706666666666,85.3140000000008" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="88.1123333333333,98.8140000000007" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="80.4040000000002,121.813968288899" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point1)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.2" Value="89.496343272263,58.6393074999859" />
+        <EasingPointKeyFrame KeyTime="0:0:0.3" Value="90.154,70.4806666666667" />
+        <EasingPointKeyFrame KeyTime="0:0:0.4" Value="87.5706666666667,83.814" />
+        <EasingPointKeyFrame KeyTime="0:0:0.5" Value="84.6956666666674,97.4390000000013" />
+        <EasingPointKeyFrame KeyTime="0:0:0.6" Value="78.8980000000002,120.140545288899" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point2)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="25.5900700867326,17.9344085888984"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.2" Value="22.3664389177997,48.5177419222317"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="20.7546233333333,63.8094085888984" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="13.0191463379917,92.2131319975191" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="13.0191463379917,92.2131319975191" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point3)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="38.8227800867326,30.9389682888984"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.2" Value="35.5991489177997,61.5223016222317"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="33.9873333333333,76.8139682888984" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="26.3206666666667,105.147301622232" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="26.3206666666667,105.147301622232" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point1)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="46.0727800867326,38.0639682888984"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.2" Value="42.8491489177997,68.6473016222317"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="41.2373333333332,83.9389682888984" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="42.8680428962236,121.237685706797" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="42.8680428962236,121.237685706797" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="13.9063172807326,17.0644043388984"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.2" Value="26.9196357568522,41.5211774722175"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="33.6537800865175,54.3139682888984" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="57.3206666666667,90.4806349555651" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="41.904,109.313968288898" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="14.1967641367326,18.7830954888984"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.2" Value="27.2100826128522,43.2398686222175"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="33.9442269425175,56.0326594388984" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="57.6111135226667,92.1993261055651" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="42.194446856,111.032659438898" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point2)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="12.9064028567326,11.1475075888984"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.2" Value="25.9197213328522,35.6042807222175"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="32.6538656625175,48.3970715388984" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="56.3207522426667,84.5637382055652" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="40.904085576,103.397071538898" />
+      </PointAnimationUsingKeyFrames>
+      <PointAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point3)"
+          Storyboard.TargetName="path2">
+        <EasingPointKeyFrame KeyTime="0:0:0.1" Value="13.9063172807326,17.0644043388984"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.2" Value="26.9196357568522,41.5211774722175"/>
+      	<EasingPointKeyFrame KeyTime="0:0:0.3" Value="33.6537800865175,54.3139682888984" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.5" Value="57.3206666666667,90.4806349555651" />
+      	<EasingPointKeyFrame KeyTime="0:0:0.6" Value="41.904,109.313968288898" />
+      </PointAnimationUsingKeyFrames>
+      <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+          Storyboard.TargetName="path2">
+        <DiscreteObjectKeyFrame KeyTime="0:0:0.5" Value="{x:Static Visibility.Visible}" />
+        <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Hidden}" />
+      </ObjectAnimationUsingKeyFrames>
+      <ColorAnimationUsingKeyFrames
+          Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)"
+          Storyboard.TargetName="path">
+        <EasingColorKeyFrame KeyTime="0:0:0.7" Value="White" />
+        <EasingColorKeyFrame KeyTime="0:0:0.8" Value="Transparent" />
+        <EasingColorKeyFrame KeyTime="0:0:0.9" Value="White" />
+      </ColorAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+          Storyboard.TargetName="rectangle">
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0" />
+      </DoubleAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+          Storyboard.TargetName="textBlock">
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0" />
+      </DoubleAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+          Storyboard.TargetName="textBlock1">
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0" />
+      </DoubleAnimationUsingKeyFrames>
+      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+          Storyboard.TargetName="button1">
+      	<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0" />
+      </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+    <Storyboard x:Key="Peak">
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)" Storyboard.TargetName="path1">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="93.167,0.75"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="path1">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="58.917,-2.75"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point2)" Storyboard.TargetName="path1">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="93.167,0.75"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point3)" Storyboard.TargetName="path1">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="93.167,0.75"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[12].(BezierSegment.Point2)" Storyboard.TargetName="path1">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="165.000333333333,53.1666666666667"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[12].(BezierSegment.Point3)" Storyboard.TargetName="path1">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="140.833666666668,25.1666666666662"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point1)" Storyboard.TargetName="path1">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="140.833666666668,25.1666666666662"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="267.033166666667,24.6041666666667"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="267.033166666667,24.6041666666667"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="267.033166666667,24.6041666666667"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="219.470666666665,0.208333333333326"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="219.470666666665,0.208333333333326"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="219.470666666665,0.208333333333326"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="219.470666666665,0.208333333333326"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="224.822876620381,8.74528806406224"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="228.020007641427,12.3201286232235"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="232.429,17.25"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="239.60014850371,20.4792351819665"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="246.595666666666,22.0000000000001"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="path">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="254.262333333333,23.6666666666667"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="39.0706666666667,1.39730162223179"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="39.3611135226667,3.11599277223179"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="38.0707522426667,-4.5195951277682"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="39.0706666666667,1.39730162223179"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="72.0602500000058,14.8764999999992"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="71.3102500000058,13.8764999999993"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="68.4246309354683,12.8459217626647"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="57.279,13.0015"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="72.7164999999995,15.564"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="72.7164999999995,15.564"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="31.1929395900955,0.0443180448643261"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="48.1540000000042,7.564"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="path2">
+    		<EasingPointKeyFrame KeyTime="0:0:0.3" Value="56.6123333333333,11.314"/>
+    	</PointAnimationUsingKeyFrames>
+    </Storyboard>
+    <Storyboard x:Key="PeakBack">
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)" Storyboard.TargetName="path1">
+    		<SplinePointKeyFrame KeyTime="0" Value="93.167,0.75"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="65.063551270281,2.33333343730307"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="path1">
+    		<SplinePointKeyFrame KeyTime="0" Value="58.917,-2.75"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="51.9987980711882,6.12642265843657"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point2)" Storyboard.TargetName="path1">
+    		<SplinePointKeyFrame KeyTime="0" Value="93.167,0.75"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="65.063551270281,2.33333343730307"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point3)" Storyboard.TargetName="path1">
+    		<SplinePointKeyFrame KeyTime="0" Value="93.167,0.75"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="65.063551270281,2.33333343730307"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[12].(BezierSegment.Point2)" Storyboard.TargetName="path1">
+    		<SplinePointKeyFrame KeyTime="0" Value="165.000333333333,53.1666666666667"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="161.396884603615,54.3333334036531"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[12].(BezierSegment.Point3)" Storyboard.TargetName="path1">
+    		<SplinePointKeyFrame KeyTime="0" Value="140.833666666668,25.1666666666662"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="155.396884603615,48.3333334075356"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[13].(BezierSegment.Point1)" Storyboard.TargetName="path1">
+    		<SplinePointKeyFrame KeyTime="0" Value="140.833666666668,25.1666666666662"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="155.396884603615,48.3333334075356"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="267.033166666667,24.6041666666667"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="281.679000000031,47.8437500553227"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="267.033166666667,24.6041666666667"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="281.679000000031,47.8437500553227"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="267.033166666667,24.6041666666667"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="281.679000000031,47.8437500553227"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="219.470666666665,0.208333333333326"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="191.319625,1.79687505531311"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="219.470666666665,0.208333333333326"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="191.319625,1.79687505531311"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="219.470666666665,0.208333333333326"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="191.319625,1.79687505531311"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="219.470666666665,0.208333333333326"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="191.319625,1.79687505531311"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="224.822876620381,8.74528806406224"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="199.676979362688,19.0836663893418"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="228.020007641427,12.3201286232235"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="211.426683662688,29.8336663893418"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="232.429,17.25"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="223.176387662686,40.5836663893418"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="239.60014850371,20.4792351819665"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="230.676683662687,43.8336663893418"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="246.595666666666,22.0000000000001"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="245.926683662687,47.8336663893418"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="path">
+    		<SplinePointKeyFrame KeyTime="0" Value="254.262333333333,23.6666666666667"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="261.176683662688,51.8336663893418"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.StartPoint)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="39.0706666666667,1.39730162223179"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="13.9063172807326,17.0644043388984"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="39.3611135226667,3.11599277223179"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="14.1967641367326,18.7830954888984"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point2)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="38.0707522426667,-4.5195951277682"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="12.9064028567326,11.1475075888984"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point3)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="39.0706666666667,1.39730162223179"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="13.9063172807326,17.0644043388984"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point2)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="72.0602500000058,14.8764999999992"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="86.904,38.0483432888984"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point3)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="71.3102500000058,13.8764999999993"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="85.8883750000153,37.1733432888993"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[3].(BezierSegment.Point1)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="68.4246309354683,12.8459217626647"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="84.1827657014039,35.7038952777673"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point2)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="57.279,13.0015"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="73.232263,41.1371872888983"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point3)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="72.7164999999995,15.564"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="87.982125,40.2202182888983"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[2].(BezierSegment.Point1)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="72.7164999999995,15.564"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="87.982125,40.2202182888983"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point2)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="31.1929395900955,0.0443180448643261"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="25.5900700867326,17.9344085888984"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point3)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="48.1540000000042,7.564"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="38.8227800867326,30.9389682888984"/>
+    	</PointAnimationUsingKeyFrames>
+    	<PointAnimationUsingKeyFrames Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[1].(BezierSegment.Point1)" Storyboard.TargetName="path2">
+    		<SplinePointKeyFrame KeyTime="0" Value="56.6123333333333,11.314"/>
+    		<SplinePointKeyFrame KeyTime="0:0:0.3" Value="46.0727800867326,38.0639682888984"/>
+    	</PointAnimationUsingKeyFrames>
+    </Storyboard>
+  </Window.Resources>
+  <Window.Triggers>
+    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+    	<!--<BeginStoryboard Storyboard="{StaticResource Peak}"/>-->
+      <!--<BeginStoryboard Storyboard="{StaticResource Peel}"/>-->
+      <!--<BeginStoryboard Storyboard="{StaticResource Green}"/>
+			<BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>-->
+    </EventTrigger>
+  </Window.Triggers>
+  <Grid x:Name="myGrid" Background="Transparent">
+    <!--<Image HorizontalAlignment="Center" Name="image1" Stretch="None" VerticalAlignment="Center"
+        Source="c:\workspace\healthkick\src\images\sticker.png" />-->
+  	<Path x:Name="path1" Fill="{Binding Color}" Margin="42.833,39,43.449,25.111" Opacity="1.0">
+  		<Path.Data>
+  			<PathGeometry>
+  				<PathFigure IsClosed="True" StartPoint="65.063551270281,2.33333343730307">
+  					<BezierSegment Point3="31.9122825431297,18.1294910865626" Point2="40.93490835006,11.3847841260715" Point1="51.9987980711882,6.12642265843657"/>
+  					<BezierSegment Point3="14.1926395486394,37.1897363522375" Point2="18.7779743067645,29.877132078217" Point1="24.6914248832155,23.5273176130855"/>
+  					<BezierSegment Point3="5.38573784035049,57.9524744522228" Point2="7.35144589560285,50.3301631361216" Point1="10.2913313743388,43.411468098019"/>
+  					<BezierSegment Point3="2.42388460361407,83.0000752876383" Point2="2.42388460361407,73.9395101601368" Point1="3.41545037514961,65.5925430788149"/>
+  					<BezierSegment Point3="5.76443159315419,104.662341854162" Point2="3.52690456276123,97.1675978923534" Point1="2.42388460361407,89.7594192602605"/>
+  					<BezierSegment Point3="14.7999749469111,125.055017862945" Point2="10.8189539537467,118.473337981556" Point1="7.81518685471962,111.531481491356"/>
+  					<BezierSegment Point3="82.4238846036141,163" Point2="49.6475534461391,163" Point1="27.3600190701435,145.820090405182"/>
+  					<BezierSegment Point3="112.040822059073,157.763970060737" Point2="103.332606282816,161.090279045282" Point1="93.46861672406,163"/>
+  					<BezierSegment Point3="134.352649319991,144.353185921718" Point2="128.011562966155,149.876043508449" Point1="120.582140713141,154.501411379502"/>
+  					<BezierSegment Point3="146.753503784273,130.664420670279" Point2="143.220928732843,135.598991282622" Point1="139.090586550136,140.226613420282"/>
+  					<BezierSegment Point3="157.72710781833,109.726768278856" Point2="155.118560345659,116.945121044184" Point1="151.468481752115,124.078179364934"/>
+  					<BezierSegment Point3="162.673884603615,82.7500755229122" Point2="162.673884603615,91.2491568245171" Point1="161.040928674983,100.556788358987"/>
+  					<BezierSegment Point3="155.396884603615,48.3333334075356" Point2="161.396884603615,54.3333334036531" Point1="162.673884603615,77.4434612432036"/>
+  					<BezierSegment Point3="65.063551270281,2.33333343730307" Point2="65.063551270281,2.33333343730307" Point1="155.396884603615,48.3333334075356"/>
+  				</PathFigure>
+  			</PathGeometry>
+  		</Path.Data>
+  		<Path.Effect>
+  			<DropShadowEffect ShadowDepth="1" Opacity="0.25" />
+  		</Path.Effect>
+  	</Path>
+    <!--<Ellipse Width="170" Height="170" Fill="#FFFFCC00"></Ellipse>-->
+
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent">
+      <Rectangle x:Name="rectangle" Height="15" />
+      <TextBlock x:Name="textBlock" Width="150" TextAlignment="Center" TextWrapping="Wrap"
+          FontSize="14"><Run Background="#96FFFF00" Text="{Binding Msg}" /></TextBlock>
+      <Rectangle Height="5" />
+      <TextBlock x:Name="textBlock1" Width="150" TextAlignment="Center" TextWrapping="Wrap"
+          FontSize="10"
+          Visibility="{Binding SubText, Converter={StaticResource BoolToVisConverter}}"><Run
+            Text="LAST READING:" /><LineBreak /><Run
+            Text="{Binding LastReading, Converter={StaticResource DateTimeToStringConverter}}" /></TextBlock>
+      <Button Content="OK" Height="22" HorizontalAlignment="Center" x:Name="button1"
+          VerticalAlignment="Center" Width="53" Click="Button1Click" Margin="5"
+          Visibility="{Binding ShowButton, Converter={StaticResource BoolToVisConverter}}" />
+    </StackPanel>
+
+    <Path x:Name="path2" Margin="112.346,50.186,44.036,61.74" Fill="#34000000">
+      <Path.Data>
+      	<PathGeometry>
+      		<PathFigure IsClosed="True" StartPoint="13.9063172807326,17.0644043388984">
+      			<BezierSegment Point3="38.8227800867326,30.9389682888984" Point2="25.5900700867326,17.9344085888984" Point1="14.1967641367326,18.7830954888984"/>
+      			<BezierSegment Point3="87.982125,40.2202182888983" Point2="73.232263,41.1371872888983" Point1="46.0727800867326,38.0639682888984"/>
+      			<BezierSegment Point3="85.8883750000153,37.1733432888993" Point2="86.904,38.0483432888984" Point1="87.982125,40.2202182888983"/>
+      			<BezierSegment Point3="13.9063172807326,17.0644043388984" Point2="12.9064028567326,11.1475075888984" Point1="84.1827657014039,35.7038952777673"/>
+      		</PathFigure>
+      	</PathGeometry>
+      </Path.Data>
+    </Path>
+    <Path x:Name="path" Margin="-83.429,39.5,44.438,-120.243">
+      <Path.Data>
+      	<PathGeometry>
+      		<PathFigure IsClosed="True" StartPoint="191.319625,1.79687505531311">
+      			<BezierSegment Point3="211.426683662688,29.8336663893418" Point2="199.676979362688,19.0836663893418" Point1="191.319625,1.79687505531311"/>
+      			<BezierSegment Point3="245.926683662687,47.8336663893418" Point2="230.676683662687,43.8336663893418" Point1="223.176387662686,40.5836663893418"/>
+      			<BezierSegment Point3="281.679000000031,47.8437500553227" Point2="281.679000000031,47.8437500553227" Point1="261.176683662688,51.8336663893418"/>
+      			<BezierSegment Point3="191.319625,1.79687505531311" Point2="191.319625,1.79687505531311" Point1="281.679000000031,47.8437500553227"/>
+      		</PathFigure>
+      	</PathGeometry>
+      </Path.Data>
+      <Path.Fill>
+        <LinearGradientBrush StartPoint="0,1" EndPoint="0.35,0">
+          <GradientStop Color="#FF5A5A5A" Offset="1" />
+          <GradientStop Color="White" />
+          <GradientStop Color="#FEFAFAFA" Offset="0.638" />
+        </LinearGradientBrush>
+      </Path.Fill>
+    </Path>
+    
+    
+  </Grid>
+</Window>
