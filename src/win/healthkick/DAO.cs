@@ -6,7 +6,7 @@ using System.Text;
 using SubSonic.Repository;
 using SubSonic.Linq;
 
-namespace healthkick
+namespace HealthKick
 {
 
   public class DAO

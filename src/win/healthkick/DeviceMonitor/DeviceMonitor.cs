@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Management;
 
-namespace healthkick.DeviceMonitor
+namespace HealthKick.DeviceMonitor
 {
   /// <summary>Media watcher delegate.</summary>
   /// <param name="sender"></param>

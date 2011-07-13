@@ -8,11 +8,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
 using Hardcodet.Wpf.TaskbarNotification;
-using healthkick.DeviceMonitor;
+using HealthKick.DeviceMonitor;
 using Microsoft.Scripting;
 using Microsoft.Scripting.Hosting;
 
-namespace healthkick
+namespace HealthKick
 {
   /// <summary>
   /// Interaction logic for App.xaml

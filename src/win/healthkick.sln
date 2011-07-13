@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "healthkick", "healthkick\healthkick.csproj", "{3B5C2A52-A9DF-45A3-A53A-9E49D1021637}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthKick", "healthkick\HealthKick.csproj", "{3B5C2A52-A9DF-45A3-A53A-9E49D1021637}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotifyIconWpf", "NotifyIconWpf\NotifyIconWpf.csproj", "{7AC63864-7638-41C4-969C-D3197EF2BED9}"
 EndProject

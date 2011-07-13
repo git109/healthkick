@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace healthkick.Properties
+namespace HealthKick.Properties
 {
 
 

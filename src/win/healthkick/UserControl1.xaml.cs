@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace healthkick
+namespace HealthKick
 {
 	/// <summary>
 	/// Interaction logic for UserControl1.xaml

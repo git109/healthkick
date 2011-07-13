@@ -10,7 +10,7 @@ using System.Windows.Shapes;
 using Microsoft.Scripting;
 using Microsoft.Scripting.Hosting;
 
-namespace healthkick.ViewModel
+namespace HealthKick.ViewModel
 {
 
   public class StickerViewModel

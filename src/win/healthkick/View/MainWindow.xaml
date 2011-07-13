@@ -2,8 +2,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:healthkick"
-    xmlns:tb="clr-namespace:Hardcodet.Wpf.TaskbarNotification;assembly=Hardcodet.Wpf.TaskbarNotification" xmlns:ViewModel="clr-namespace:healthkick.ViewModel" x:Name="window" mc:Ignorable="d" x:Class="healthkick.MainWindow" Title="MainWindow" Height="250" Width="250"
+    xmlns:local="clr-namespace:HealthKick"
+    xmlns:tb="clr-namespace:Hardcodet.Wpf.TaskbarNotification;assembly=Hardcodet.Wpf.TaskbarNotification" xmlns:ViewModel="clr-namespace:HealthKick.ViewModel" x:Name="window" mc:Ignorable="d" x:Class="HealthKick.MainWindow" Title="MainWindow" Height="250" Width="250"
     AllowsTransparency="True" WindowStyle="None" Background="Transparent"
     TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType"
     WindowStartupLocation="Manual" Loaded="Window_Loaded" Topmost="true" ShowInTaskbar="false">

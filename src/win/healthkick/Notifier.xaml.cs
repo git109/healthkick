@@ -12,7 +12,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace healthkick
+namespace HealthKick
 {
   /// <summary>
   /// Interaction logic for Notifier.xaml

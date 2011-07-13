@@ -1,6 +1,6 @@
-﻿<Window x:Class="healthkick.Notifier"
+﻿<Window x:Class="HealthKick.Notifier"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ViewModel="clr-namespace:healthkick.ViewModel" Title="Dialog"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ViewModel="clr-namespace:HealthKick.ViewModel" Title="Dialog"
     WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None"
     Background="Transparent">
 	<Window.Resources>
