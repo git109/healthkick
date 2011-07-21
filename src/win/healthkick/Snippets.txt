@@ -1,0 +1,44 @@
+﻿ 
+    private void MediaEventArrived2(object sender, EventArrivedEventArgs e)
+    {
+
+      // Get the Event object and display it
+      PropertyData pd = e.NewEvent.Properties["TargetInstance"];
+      DriveStatus driveStatus = this.m_driveStatus;
+
+      if (pd != null)
+      {
+        ManagementBaseObject mbo = pd.Value as ManagementBaseObject;
+        System.IO.DriveInfo info = new System.IO.DriveInfo((string)mbo.Properties["DeviceID"].Value);
+        driveStatus = info.IsReady ? DriveStatus.Inserted : DriveStatus.Ejected;
+      }
+
+      if (driveStatus != this.m_driveStatus)
+      {
+        this.m_driveStatus = driveStatus;
+        if (null != MediaWatcher)
+        {
+          MediaWatcher(sender, driveStatus);
+        }
+      }
+    }
+
+    //Get the Event object and display it
+    private void MediaEventArrived1(object sender, EventArrivedEventArgs e)
+    {
+      Console.WriteLine("\n========================EVENT CAPTURED===============================");
+      foreach (PropertyData pd in e.NewEvent.Properties)
+      {
+        Console.WriteLine("{0},{1},{2},{3}", pd.Name, pd.Type, pd.Value, pd.Origin);
+
+        ManagementBaseObject mbo = null;
+        if ((mbo = pd.Value as ManagementBaseObject) != null)
+        {
+          Console.WriteLine("-------------------------Properties--------------------------------");
+          foreach (PropertyData prop in mbo.Properties)
+            Console.WriteLine("{0} - {1}", prop.Name, prop.Value);
+        }
+      }
+      Console.WriteLine("\n===================================================================");
+    }
+     

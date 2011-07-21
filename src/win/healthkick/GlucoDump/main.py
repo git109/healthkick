@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 import sys
-sys.path.append("c:\\workspace\\healthkick\\src\\win\\healthkick\\healthkick\\bin\\Debug\\glucodump\\glucodump")
-sys.path.append("C:\\Python26\\Lib\\site-packages")
-sys.path.append("C:\\Python26\\Lib")
+#sys.path.append("c:\\workspace\\healthkick\\src\\win\\healthkick\\GlucoDump")
+#sys.path.append("C:\\Python26\\Lib\\site-packages")
+#sys.path.append("C:\\Python26\\Lib")
 print sys.path
 
 import usbcomm, contourusb

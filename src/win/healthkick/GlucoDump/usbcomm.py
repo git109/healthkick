@@ -16,6 +16,7 @@
 "Lowlevel communication with the meter"
 
 import usb
+import usb.backend.libusb01
 
 class _Vendor(int):
     def __new__(self, vid, **kw):
@@ -43,6 +44,7 @@ class USBComm(object):
     
     def __init__(self, **kw):
         dev = usb.core.find(**kw)
+        #dev = usb.core.find(idVendor=0x1a79, idProduct=0x6002, backend=usb.backend.libusb01.get_backend())
         try:
             dev.set_configuration()
         except usb.core.USBError:
@@ -78,3 +80,4 @@ class USBComm(object):
             now = remain[:self.blocksize-4]
             remain = remain[self.blocksize-4:]
             self.epout.write('\0\0\0' + chr(len(now)) + now) # + ('\0' * (self.blocksize - 4 - len(now))))
+            

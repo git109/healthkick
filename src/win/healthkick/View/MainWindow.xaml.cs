@@ -75,7 +75,8 @@ namespace HealthKick
     protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
     {
       base.OnMouseRightButtonDown(e);
-      CloseSticker(0);
+      //CloseSticker(0);
+      _vm.RunPythonCode();
     }
 
     void sb_Completed(object sender, EventArgs e)

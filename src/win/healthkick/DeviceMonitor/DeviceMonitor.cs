@@ -44,7 +44,7 @@ namespace HealthKick.DeviceMonitor
       Inserted = 1,
     }
     #endregion
-    
+
     #region Monitoring
     /// <summary>Starts the monitoring of device.</summary>
     /// <param name="path"></param>
@@ -75,10 +75,10 @@ namespace HealthKick.DeviceMonitor
       try
       {
         wql = new WqlEventQuery();
-        wql.EventClassName = "__InstanceModificationEvent";
+        wql.EventClassName = "__InstanceCreationEvent";
         wql.WithinInterval = new TimeSpan(0, 0, 1);
-
-        wql.Condition = String.Format(@"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DeviceID = '{0}'", this.m_logicalDrive);
+        //wql.Condition = String.Format(@"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DeviceID = '{0}'", this.m_logicalDrive);
+        wql.Condition = String.Format(@"TargetInstance ISA 'Win32_PnPEntity' and TargetInstance.Name = 'CONTOUR USB'");
         this.m_managementEventWatcher = new ManagementEventWatcher(scope, wql);
 
         //Register async. event handler
@@ -119,28 +119,19 @@ namespace HealthKick.DeviceMonitor
     /// <param name="e"></param>
     private void MediaEventArrived(object sender, EventArrivedEventArgs e)
     {
-
-      // Get the Event object and display it
       PropertyData pd = e.NewEvent.Properties["TargetInstance"];
-      DriveStatus driveStatus = this.m_driveStatus;
-
       if (pd != null)
       {
         ManagementBaseObject mbo = pd.Value as ManagementBaseObject;
-        System.IO.DriveInfo info = new System.IO.DriveInfo((string)mbo.Properties["DeviceID"].Value);
-        driveStatus = info.IsReady ? DriveStatus.Inserted : DriveStatus.Ejected;
-      }
-
-      if (driveStatus != this.m_driveStatus)
-      {
-        this.m_driveStatus = driveStatus;
-        if (null != MediaWatcher)
+        if ((string) mbo.Properties["Name"].Value == "CONTOUR USB")
         {
-          MediaWatcher(sender, driveStatus);
+          Console.WriteLine("***Inserted!");
+          Console.WriteLine(mbo.Properties["DeviceID"].Value);
+          Console.WriteLine(mbo.Properties["VendorID"].Value);
         }
       }
-    }
 
+    }
 
     /// <summary>Gets the logical drive of a given path.</summary>
     /// <param name="path"></param>

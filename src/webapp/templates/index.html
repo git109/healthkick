@@ -1,0 +1,106 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]> <html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]> <html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]> ><! <![endif]-->
+<html lang='en'>
+  <!-- <![endif] -->
+  <head>
+    <!--
+      Basic Page Needs
+      ==================================================
+    -->
+    <meta charset='utf-8' />
+    <title>HealthKick</title>
+    <meta content='HealthKick' name='description'>
+      <meta content='Vaughan Rouesnel' name='author'>
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!--
+          Mobile Specific Metas
+          ==================================================
+        -->
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+        <!--
+          CSS
+          ==================================================
+        -->
+        <link href='stylesheets/base.css' rel='stylesheet'>
+          <link href='stylesheets/skeleton.css' rel='stylesheet'>
+            <link href='stylesheets/layout.css' rel='stylesheet'>
+              <!--
+                Favicons
+                ==================================================
+              -->
+              <link href='images/favicon.ico' rel='shortcut icon'>
+                <link href='images/apple-touch-icon.png' rel='apple-touch-icon'>
+                  <link href='images/apple-touch-icon-72x72.png' rel='apple-touch-icon' sizes='72x72' />
+                  <link href='images/apple-touch-icon-114x114.png' rel='apple-touch-icon' sizes='114x114' />
+                </link>
+              </link>
+            </link>
+          </link>
+        </link>
+      </meta>
+    </meta>
+  </head>
+  <body>
+    <!--
+      Primary Page Layout
+      ==================================================
+    -->
+    <!-- Delete everything in this .container and get started on your own site! -->
+    <div class='container'>
+      <div class='sixteen columns'>
+        <h1 class='remove-bottom' style='margin-top: 40px'>HealthKick</h1>
+        <h5>Version 0.1</h5>
+        <hr />
+      </div>
+      <div class='three columns sidebar'>
+        <h3>Menu</h3>
+        <ul>
+          <li>One</li>
+          <li>Two</li>
+        </ul>
+        <h3>About HealthKick?</h3>
+        <p>
+          The goal of this project is to help people with diabetes stay healthy.
+          HealthKick provides easy ways to track blood pressure, blood glucose levels, weight,
+          body fat and daily activity as well as convenient notifications so you don't forget.
+        </p>
+      </div>
+      <div class='twelve columns content offset-by-one'>
+        <h3>Feed</h3>
+        <div id='healthkickapp'>
+          <input id='butt' type='button' value='hello' />
+          <div id='feed'>
+            This is where the feed goes
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- container -->
+    <!--
+      JS
+      ==================================================
+    -->
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        window.jQuery || document.write("\x3C/script>")
+      //]]>
+    </script>
+    <script src='javascripts/json2.js'></script>
+    <script src='javascripts/underscore.js'></script>
+    <script src='javascripts/backbone.js'></script>
+    <script src='javascripts/backbone.localStorage.js'></script>
+    <script src='javascripts/app.js'></script>
+    <script id='item-template' type='text/template'>
+      <div class='item'>
+        <div class='title'><%= title %></div>
+        <div class='description'><%= description %></div>
+      </div>
+    </script>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+use Device::SerialPort qw( :PARAM :STAT 0.07 );
+
+my $PortObj = new Device::SerialPort ("/dev/ttyUSB0", 1);
+
+$| = 1;
+
+$PortObj->user_msg(1);
+$PortObj->handshake('none');
+$PortObj->baudrate(9600);
+#$PortObj->baudrate(19200);
+$PortObj->parity("none");
+$PortObj->stopbits(1);
+$PortObj->write_settings || undef $PortObj;
+
+my $fnum = 0;
+my $fdelim;
+my $rdelim;
+my $cdelim;
+my $edelim;
+my $control = 0;
+
+my $count;
+my $saw;
+
+do {
+	($count, $saw) = $PortObj->read(1);
+	sleep 1 if ($count <= 0);
+} while ($count <= 0 || $saw ne chr(5));
+
+my $count_out = $PortObj->write(chr(6));
+my $buf;
+my $ncount = 0;
+
+do {
+	$buf = '';
+
+	do {
+		($count, $saw) = $PortObj->read(1);
+		$buf .= $saw if ($count > 0);
+	} while ($count <= 0 || $saw ne "\n");
+
+	my $data = &validate_line($buf);
+
+	if (!defined($data)) {
+		$count_out = $PortObj->write(chr(21));
+		$ncount++;
+
+		die "Failed communications.\n" if ($ncount >= 6);
+	}
+	else {
+		$ncount = 0;
+		$count_out = $PortObj->write(chr(4));
+	}
+
+	#print "$data\n";
+	&parse_data($data);
+} while ($buf !~ /\x03/);
+
+sub validate_line {
+	my $line = shift;
+	my $chk;
+
+	if ($line !~ (/^\x02(\d)(.*)\r([\x03\x17])([0-98A-F]{2})\r/)) {
+		warn "Bad line. Did not match expected format.\n";
+		return undef;
+	}
+
+	my $frame = $1;
+	my $text = $2;
+	my $ftype = $3;
+	my $refchk = $4;
+
+	my $next = ($fnum + 1)%8;
+
+	if ($frame != $fnum && $frame != $next) {
+		warn "Bad frame. Expected $fnum or $next, got $frame\n";
+		return undef;
+	}
+
+	$fnum = $frame;
+
+	for (my $i = 0; substr($line, $i, 1) !~ /[\x03\x17]/; $i++) {
+		my $c = substr($line, $i, 1);
+
+		if ($c eq "\x02") {
+			$chk = 0;
+		}
+		else {
+			$chk += ord($c);
+			$chk &=0xff;
+		}
+
+	}
+
+	$chk += ord($ftype);
+	$chk &=0xff;
+	$chk = sprintf("%02X", $chk);
+
+	if ($chk ne $refchk) {
+		warn "Bad checksum. Got $chk, needed $refchk\n";
+		return undef;
+	}
+
+	return $text;
+}
+
+sub parse_data {
+	my $data = shift;
+	my $dtype = substr($data, 0, 1);
+
+
+	if ($dtype eq 'R') {
+		my @fields = split(/$fdelim/, $data);
+		my $snum = $fields[1];
+		my $id = $fields[2];
+		my $mes = $fields[3];
+		my $unit = $fields[4];
+		my $flag = $fields[6];
+		my $mark = $fields[7];
+		my $stat = $fields[8];
+		my $dstamp = $fields[11];
+		$dstamp = '000000000000' if (!defined($dstamp));
+		my $date = substr($dstamp, 4, 2) . '/'
+			. substr($dstamp, 6, 2) . '/'
+			. substr($dstamp, 0, 4);
+		my $time = substr($dstamp, 8, 2) . ':' . substr($dstamp, 10, 2);
+
+		@fields = split(/$cdelim/, $id);
+		$id = $fields[3];
+		@fields = split(/$cdelim/, $unit);
+		$unit = $fields[0];
+		my $ref = $fields[1];
+
+		print "$snum,$id,$mes,$unit,$ref,$flag,$mark,$stat,$date,$time\n"
+			if (!$control && $id eq 'Glucose');
+	}
+	elsif ($dtype eq 'O') {
+		my @fields = split(/$fdelim/, $data);
+		my $snum = $fields[1];
+
+		if (@fields >= 12 && $fields[11] eq 'Q') {
+			$control = 1;
+		}
+		else {
+			$control = 0;
+		}
+
+	}
+	elsif ($dtype eq 'H') {
+		$fdelim = '\\' . substr($data, 1, 1);
+		$rdelim = '\\' . substr($data, 2, 1);
+		$cdelim = '\\' . substr($data, 3, 1);
+		$edelim = '\\' . substr($data, 4, 1);
+		my @fields = split(/$fdelim/, $data);
+		my $passwd = $fields[3];
+		my $id = $fields[4];
+		my $pid = $fields[11];
+		my $ver = $fields[12];
+		my $date = $fields[13];
+		@fields = split(/$cdelim/, $id);
+		my $pcode = $fields[0];
+		my $sver = $fields[1];
+		my $sn = $fields[2];
+
+		print STDERR "Meter results from $date\n";
+		print STDERR " Meter: $pcode (SN $sn) software version $sver\n";
+	}
+	# Skipping any other record types.
+
+}
