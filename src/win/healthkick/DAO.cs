@@ -15,6 +15,7 @@ namespace HealthKick
 
     public DAO()
     {
+      /*
       repo = new SimpleRepository(SimpleRepositoryOptions.RunMigrations);
       // find active user
       if (repo.Exists<User>(x => x.Active == true))
@@ -31,13 +32,14 @@ namespace HealthKick
         user.LastReading = DateTime.Now;
         user.Active = true;
         repo.Add(user);
-      }
+      }*/
     }
 
     public User GetUser()
     {
-      var user = repo.Single<User>(x => x.Active == true);
-      return user;
+      //var user = repo.Single<User>(x => x.Active == true);
+      //return user;
+      return null;
     }
   }
 

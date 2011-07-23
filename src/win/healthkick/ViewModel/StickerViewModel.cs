@@ -22,17 +22,17 @@ namespace HealthKick.ViewModel
     public User User;
     public Stack<MainWindow> Windows = new Stack<MainWindow>();
     public Notifier notifier;
+    private DateTime lastUpdate;
 
     public StickerViewModel(DAO dao)
     {
       this.Dao = dao;
       User = dao.GetUser();
       State = new StickerState();
-      State.Color = "Yellow";
-      State.SubText = true;
+      SetStatus("waiting");
 
       // start checking for status updates
-      Timer = new Timer(new TimerCallback(Tick), null, 0, 1000);
+      //Timer = new Timer(new TimerCallback(Tick), null, 0, 1000);
 
       notifier = new Notifier();
       notifier.DataContext = State;
@@ -43,7 +43,8 @@ namespace HealthKick.ViewModel
 
     public void UpdateSticker()
     {
-      State.LastReading = User.LastReading;
+      State.LastReading = DateTime.Now;
+      //State.LastReading = User.LastReading;
     }
 
     public void HideAllStickers()
@@ -65,51 +66,70 @@ namespace HealthKick.ViewModel
     {
       //Console.WriteLine("Tick!");
       var ts = DateTime.Now.Subtract(State.LastReading);
+      var timeSinceLastUpdate = DateTime.Now.Subtract(lastUpdate);
+
+      // Do we want to update the 'time since last reading' caption
+      if (timeSinceLastUpdate > TimeSpan.FromMinutes(5))
+      {
+        UpdateSticker();
+        lastUpdate = DateTime.Now;
+      }
+      
       //if (ts.Hours > 6)
       //Console.WriteLine(ts.Seconds);
       if (ts.TotalSeconds > 10)
       {
-        SetStatus("waiting");
+        //SetStatus("waiting");
       }
       else
       {
-        SetStatus("usb_inserted");
+        //SetStatus("usb_inserted");
       }
     }
 
     public void SetStatus(string s)
     {
+      State.StateView = s;
       State.ShowButton = false;
       switch (s)
       {
         case "waiting":
-          State.Msg = "WAITING FOR BCG READING";
+          State.Msg = "waiting for blood glucose reading";
           State.Color = "#FFCC00";
+          State.SubText = true;
+          State.ShowSpinner = false;
           break;
         case "usb_inserted":
-          State.Msg = "READING RESULTS";
+          State.Msg = "reading results";
           State.Color = "Yellow";
           State.SubText = false;
+          State.ShowSpinner = true;
           break;
         case "good_results":
           // within 4-6 range
-          State.Msg = "PERFECT!";
+          State.Msg = "4.6";
+          State.Status = "perfect!";
+          State.SubText = true;
           State.Color = "#66CC00";
+          State.ShowSpinner = false;
           // show smiley face
           break;
         case "normal_results":
-          State.Msg = "READING COMPLETE";
+          State.Msg = "reading complete";
           State.Color = "Dark Green";
+          State.ShowSpinner = false;
           break;
         case "bad_results":
           // above 20
-          State.Msg = "READING COMPLETE";
+          State.Msg = "reading complete";
           State.Color = "Red";
+          State.ShowSpinner = false;
           break;
         case "waiting_for_dose":
-          State.Msg = "CLICK OK WHEN YOU HAVE DOSED";
+          State.Msg = "click OK when you have dosed";
           State.ShowButton = true;
           State.SubText = false;
+          State.ShowSpinner = false;
           break;
       }
 
@@ -206,6 +226,29 @@ namespace HealthKick.ViewModel
         }
       }
 
+      private bool _showSpinner;
+      public bool ShowSpinner
+      {
+        get { return _showSpinner; }
+        set
+        {
+          _showSpinner = value;
+          OnPropertyChanged("ShowSpinner");
+        }
+      }
+
+
+      private string _stateView;
+      public string StateView
+      {
+        get { return _stateView; }
+        set
+        {
+          _stateView = value;
+          OnPropertyChanged("StateView");
+        }
+      }
+
       public event PropertyChangedEventHandler PropertyChanged;
 
       protected void OnPropertyChanged(string propertyName)
@@ -261,7 +304,7 @@ namespace HealthKick.ViewModel
       }
       else if (dt.Day > 7)
       {
-        ret = "More than a week!!!";
+        ret = "more than a week ago!!!";
       }
       return ret;
     }

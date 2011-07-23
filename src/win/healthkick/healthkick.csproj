@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hammock.ClientProfile">
+      <HintPath>..\packages\Hammock.1.2.5\lib\net40-client\Hammock.ClientProfile.dll</HintPath>
+    </Reference>
     <Reference Include="IronPython, Version=2.7.0.40, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
       <HintPath>Lib\ironpython\IronPython.dll</HintPath>
     </Reference>
@@ -56,6 +59,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Data.SQLite.1.0.66.1\lib\System.Data.SQLite.DLL</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
@@ -78,10 +85,16 @@
     <Compile Include="DAO.cs" />
     <Compile Include="DeviceMonitor\DeviceMonitor.cs" />
     <Compile Include="DeviceReader\DeviceReader.cs" />
+    <Compile Include="Model\ResultData.cs" />
     <Compile Include="Notifier.xaml.cs">
       <DependentUpon>Notifier.xaml</DependentUpon>
     </Compile>
+    <None Include="db\Bayer.db" />
+    <None Include="packages.config" />
     <None Include="README.md" />
+    <Compile Include="ucSpinnerCogs.xaml.cs">
+      <DependentUpon>ucSpinnerCogs.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\StickerViewModel.cs" />
     <Page Include="Notifier.xaml">
       <SubType>Designer</SubType>
@@ -90,6 +103,10 @@
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucSpinnerCogs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -132,7 +149,6 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="Lib\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

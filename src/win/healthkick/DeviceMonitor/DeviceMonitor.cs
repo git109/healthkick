@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Management;
 
 namespace HealthKick.DeviceMonitor
@@ -11,19 +9,42 @@ namespace HealthKick.DeviceMonitor
   /// <param name="driveStatus"></param>
   public delegate void MediaWatcherEventHandler(object sender, MediaEvent.DriveStatus driveStatus);
 
+  public delegate void ContourUSBInserted(object sender);
+
   /// <summary>Class to monitor devices.</summary>
   public class MediaEvent
   {
     #region Variables
+
     private string m_logicalDrive;
-    private ManagementEventWatcher m_managementEventWatcher = null;
+    private ManagementEventWatcher m_managementEventWatcher;
+
     #endregion
 
     #region Events
+
     public event MediaWatcherEventHandler MediaWatcher;
+
+    public event ContourUSBInserted ContourUSBInserted;
+
     #endregion
 
     #region Enums
+
+    #region DriveStatus enum
+
+    /// <summary>The drive status.</summary>
+    public enum DriveStatus
+    {
+      Unknown = -1,
+      Ejected = 0,
+      Inserted = 1,
+    }
+
+    #endregion
+
+    #region DriveType enum
+
     /// <summary>The drive types.</summary>
     public enum DriveType
     {
@@ -36,19 +57,13 @@ namespace HealthKick.DeviceMonitor
       RamDisk = 6
     }
 
-    /// <summary>The drive status.</summary>
-    public enum DriveStatus
-    {
-      Unknown = -1,
-      Ejected = 0,
-      Inserted = 1,
-    }
+    #endregion
+
     #endregion
 
     #region Monitoring
+
     /// <summary>Starts the monitoring of device.</summary>
-    /// <param name="path"></param>
-    /// <param name="mediaEvent"></param>
     public void Monitor(string path, MediaEvent mediaEvent)
     {
       if (null == mediaEvent)
@@ -56,21 +71,13 @@ namespace HealthKick.DeviceMonitor
         throw new ArgumentException("Media event cannot be null!");
       }
 
-      //In case same class was called make sure only one instance is running
-      this.Exit();
-
-      //Keep logica drive to check
-      this.m_logicalDrive = this.GetLogicalDrive(path);
-
+      Exit(); //In case same class was called make sure only one instance is running
+      m_logicalDrive = GetLogicalDrive(path); //Keep logical drive to check
       WqlEventQuery wql;
-      ManagementOperationObserver observer = new ManagementOperationObserver();
-
-      //Bind to local machine
-      ConnectionOptions opt = new ConnectionOptions();
-
-      //Sets required privilege
+      var observer = new ManagementOperationObserver(); //Bind to local machine
+      var opt = new ConnectionOptions(); //Sets required privilege
       opt.EnablePrivileges = true;
-      ManagementScope scope = new ManagementScope("root\\CIMV2", opt);
+      var scope = new ManagementScope("root\\CIMV2", opt);
 
       try
       {
@@ -78,16 +85,17 @@ namespace HealthKick.DeviceMonitor
         wql.EventClassName = "__InstanceCreationEvent";
         wql.WithinInterval = new TimeSpan(0, 0, 1);
         //wql.Condition = String.Format(@"TargetInstance ISA 'Win32_LogicalDisk' and TargetInstance.DeviceID = '{0}'", this.m_logicalDrive);
-        wql.Condition = String.Format(@"TargetInstance ISA 'Win32_PnPEntity' and TargetInstance.Name = 'CONTOUR USB'");
-        this.m_managementEventWatcher = new ManagementEventWatcher(scope, wql);
-
+        wql.Condition =
+          String.Format(
+            @"TargetInstance ISA 'Win32_PnPEntity' and TargetInstance.Name = 'CONTOUR USB'");
+        m_managementEventWatcher = new ManagementEventWatcher(scope, wql);
         //Register async. event handler
-        this.m_managementEventWatcher.EventArrived += new EventArrivedEventHandler(mediaEvent.MediaEventArrived);
-        this.m_managementEventWatcher.Start();
+        m_managementEventWatcher.EventArrived += mediaEvent.MediaEventArrived;
+        m_managementEventWatcher.Start();
       }
       catch (Exception e)
       {
-        this.Exit();
+        Exit();
         throw new Exception("Media Check: " + e.Message);
       }
     }
@@ -97,18 +105,20 @@ namespace HealthKick.DeviceMonitor
     {
       //In case same class was called make sure only one instance is running
       /////////////////////////////////////////////////////////////
-      if (null != this.m_managementEventWatcher)
+      if (null != m_managementEventWatcher)
       {
         try
         {
-          this.m_managementEventWatcher.Stop();
-          this.m_managementEventWatcher = null;
+          m_managementEventWatcher.Stop();
+          m_managementEventWatcher = null;
         }
-        catch { }
+        catch
+        {
+        }
       }
     }
-    #endregion
 
+    #endregion
 
     #region Helpers
 
@@ -119,18 +129,68 @@ namespace HealthKick.DeviceMonitor
     /// <param name="e"></param>
     private void MediaEventArrived(object sender, EventArrivedEventArgs e)
     {
+      //PrintAllProperties(sender, e);
+      //GetDriveStatus(sender, e);
+      PrintInsertedStatus(sender, e);
+    }
+
+    private void PrintInsertedStatus(object sender, EventArrivedEventArgs e)
+    {
       PropertyData pd = e.NewEvent.Properties["TargetInstance"];
       if (pd != null)
       {
-        ManagementBaseObject mbo = pd.Value as ManagementBaseObject;
+        var mbo = pd.Value as ManagementBaseObject;
         if ((string) mbo.Properties["Name"].Value == "CONTOUR USB")
         {
-          Console.WriteLine("***Inserted!");
-          Console.WriteLine(mbo.Properties["DeviceID"].Value);
-          Console.WriteLine(mbo.Properties["VendorID"].Value);
+          ContourUSBInserted(this); // Notify listeners that the Contour device was inserted
+          //Console.WriteLine(mbo.Properties["DeviceID"].Value);
+          //Console.WriteLine(mbo.Properties["VendorID"].Value);
         }
       }
+    }
 
+    private void PrintAllProperties(object sender, EventArrivedEventArgs e)
+    {
+      const string eventCaptured = "\n===EVENT CAPTURED===";
+      const string eventProperties = "\n---PROPERTIES---";
+      const string eventCapturedEnd = "\n====================";
+      
+      Console.WriteLine(eventCaptured);
+      foreach (PropertyData pd in e.NewEvent.Properties)
+      {
+        Console.WriteLine("{0},{1},{2},{3}", pd.Name, pd.Type, pd.Value, pd.Origin);
+
+        ManagementBaseObject mbo = null;
+        if ((mbo = pd.Value as ManagementBaseObject) != null)
+        {
+          Console.WriteLine(eventProperties);
+          foreach (PropertyData prop in mbo.Properties) Console.WriteLine("{0} - {1}", prop.Name, prop.Value);
+        }
+      }
+      Console.WriteLine(eventCapturedEnd);
+    }
+
+    private void GetDriveStatus(object sender, EventArrivedEventArgs e)
+    {
+      // Get the Event object and display it
+      PropertyData pd = e.NewEvent.Properties["TargetInstance"];
+      DriveStatus driveStatus = m_driveStatus;
+
+      if (pd != null)
+      {
+        var mbo = pd.Value as ManagementBaseObject;
+        var info = new DriveInfo((string) mbo.Properties["DeviceID"].Value);
+        driveStatus = info.IsReady ? DriveStatus.Inserted : DriveStatus.Ejected;
+      }
+
+      if (driveStatus != m_driveStatus)
+      {
+        m_driveStatus = driveStatus;
+        if (null != MediaWatcher)
+        {
+          MediaWatcher(sender, driveStatus);
+        }
+      }
     }
 
     /// <summary>Gets the logical drive of a given path.</summary>
@@ -138,12 +198,12 @@ namespace HealthKick.DeviceMonitor
     /// <returns></returns>
     private string GetLogicalDrive(string path)
     {
-      System.IO.DirectoryInfo dirInfo = new System.IO.DirectoryInfo(path);
+      var dirInfo = new DirectoryInfo(path);
       string root = dirInfo.Root.FullName;
-      string logicalDrive = root.Remove(root.IndexOf(System.IO.Path.DirectorySeparatorChar));
+      string logicalDrive = root.Remove(root.IndexOf(Path.DirectorySeparatorChar));
       return logicalDrive;
     }
+
     #endregion
   }
 }
-
