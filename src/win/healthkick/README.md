@@ -6,7 +6,7 @@
 
 2. Resolve dependencies
 
-From View > Other Windows > Package Manager Console
+From View > Other Windows > Package Manager Console (NuGet must be installed)
 
     PM> Install-Package NuGet.CommandLine
     nuget install HealthKick/packages.config -o packages
