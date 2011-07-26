@@ -52,7 +52,7 @@
       </TextBlock>
       <Rectangle Height="5" />
       <TextBlock x:Name="lastReadingTextBlock" Width="150" TextAlignment="Center"
-                 TextWrapping="Wrap" FontSize="10" FontStyle="Italic">
+                 TextWrapping="Wrap" FontSize="10" FontStyle="Normal">
         <Run Text="last reading:" />
         <LineBreak />
         <Run Text="{Binding LastReading, Converter={StaticResource DateTimeToStringConverter}}" />

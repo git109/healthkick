@@ -27,7 +27,7 @@
           Duration="0:0:0.5" />
     </Storyboard>
     <Storyboard x:Key="Peel">
-      <PointAnimationUsingKeyFrames
+      <PointAnimationUsingKeyFrames Duration="0:0:1"
 Storyboard.TargetProperty="(Path.Data).(PathGeometry.Figures)[0].(PathFigure.Segments)[0].(BezierSegment.Point1)"
 Storyboard.TargetName="path1">
         <EasingPointKeyFrame KeyTime="0:0:0.3" Value="31.8966659146367,18" />

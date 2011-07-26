@@ -205,8 +205,13 @@ namespace HealthKick
       DateTime parsedDate;
       DateTime parsedTime;
       long longDate = Convert.ToInt64(date);
-      parsedDate = FromUnixTime(longDate);
+      parsedDate = FromUnixTime(longDate).ToUniversalTime();
       DateTime.TryParse(time, out parsedTime);
+
+      TimeZoneInfo tzi = TimeZoneInfo.FindSystemTimeZoneById("AUS Eastern Standard Time");
+      TimeSpan offset = tzi.GetUtcOffset(parsedDate);
+      parsedDate = TimeZoneInfo.ConvertTime(parsedDate, tzi);
+
       DateTime resultDate = parsedDate.Date + parsedTime.TimeOfDay;
 
       return resultDate;

@@ -69,6 +69,7 @@ namespace HealthKick.ViewModel
     private DateTime _lastUpdate;
     private string _msg;
     private bool _showButton;
+    private int _closingWindows;
 
     public StickerViewModel(DAO dao)
     {
@@ -209,11 +210,13 @@ namespace HealthKick.ViewModel
     public void HideAllStickers()
     {
       int ticks = 0;
+      _closingWindows = Windows.Count;
       while (Windows.Count > 0)
       {
         Windows.Pop().CloseSticker(ticks);
         ticks += 500;
       }
+      SetStatus(StickerStatus.WaitingForReading);
     }
 
     public void StartTimer()
@@ -227,12 +230,13 @@ namespace HealthKick.ViewModel
       TimeSpan timeSinceLastUpdate = DateTime.Now.Subtract(_lastUpdate);
 
       // Do we want to update the 'time since last reading' caption
-      if (timeSinceLastUpdate > TimeSpan.FromSeconds(5))
+      if (timeSinceLastUpdate > TimeSpan.FromSeconds(30))
       {
         UpdateSticker();
         _lastUpdate = DateTime.Now;
 
         // Add a sticker if more than 6 hours since last reading
+        /*
         if (ts.Hours > 8)
         {
           if (Windows.Count < 3)
@@ -242,10 +246,13 @@ namespace HealthKick.ViewModel
           if (Windows.Count < 2)
             NewStickerThreadSafeDelegate();
         }
-        else if (ts.Hours > 6)
+        else*/
+        if (ts.Hours > 6 || ts.Days > 0)
         {
           if (Windows.Count < 1)
+          {
             NewStickerThreadSafeDelegate();
+          }
         }
         else
         {
@@ -259,6 +266,7 @@ namespace HealthKick.ViewModel
 
     public void Closed(MainWindow mw)
     {
+
     }
 
     public void NewSticker()
@@ -290,6 +298,9 @@ namespace HealthKick.ViewModel
     public void Destroy(MainWindow window)
     {
       Console.WriteLine("Removed");
+      _closingWindows--;
+      if (_closingWindows <= 0)
+        SetStatus(StickerStatus.WaitingForReading);
     }
 
     public void RunPythonCode()
@@ -307,9 +318,10 @@ namespace HealthKick.ViewModel
     }
 
 
-    internal void OnStickerClick(MouseButtonEventArgs e)
+    public void OnStickerClick()
     {
       // If results are showing, close all stickers
+      HideAllStickers();
     }
 
 

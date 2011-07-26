@@ -82,21 +82,21 @@ namespace HealthKick
     {
       base.OnMouseLeftButtonDown(e);
       //DragMove();
-      _vm.OnStickerClick(e);
+      //_vm.OnStickerClick();
     }
 
     protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
     {
       base.OnMouseRightButtonDown(e);
       //CloseSticker(0);
-      _vm.HideAllStickers();
+      //_vm.HideAllStickers();
       //_vm.RunPythonCode();
     }
 
     void sb_Completed(object sender, EventArgs e)
     {
       _vm.Destroy(this);
-      _vm.Closed(this);
+      //_vm.Closed(this);
       this.Close();
     }
 
@@ -117,7 +117,8 @@ namespace HealthKick
     private void Button1Click(object sender, RoutedEventArgs e)
     {
       //_vm.State.Color = "Blue";
-      _vm.HideAllStickers();
+      _vm.OnStickerClick();
+      //_vm.HideAllStickers();
       //_vm.State.LastReading = DateTime.Now;
       //_vm.RunPythonCode();
     }
