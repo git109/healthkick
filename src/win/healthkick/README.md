@@ -2,19 +2,13 @@
 
 ## Install
 
-TODO
+1. Open HealthKick.sln
 
-	easy_install pyusb
+2. Resolve dependencies
 
-Install libusb-win32-filter
-http://www.craftedge.com/products/libusb.html
+From View > Other Windows > Package Manager Console
 
-## TODO
+    PM> Install-Package NuGet.CommandLine
+    nuget install Casa/packages.config -o packages
 
-- Test with Contour device
-- Add installation project
-- Notifier logic
-- Windows Startup
-- Fix bug on close with DeviceMonitor
-- Change paths in main.py
-- Persist time of last reading
+3. Run!
