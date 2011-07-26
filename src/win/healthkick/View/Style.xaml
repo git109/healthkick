@@ -1,0 +1,133 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:healthkick="clr-namespace:healthkick"
+                    xmlns:ViewModel="clr-namespace:HealthKick.ViewModel">
+  <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+  <ViewModel:DateTimeToStringConverter x:Key="DateTimeToStringConverter" />
+  <ControlTemplate x:Key="DefaultPanel">
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="Transparent">
+      <Rectangle x:Name="rectangle" Height="15" />
+      <TextBlock x:Name="textBlock" Width="150" TextAlignment="Center" TextWrapping="Wrap">
+        <TextBlock.Style>
+          <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="14" />
+            <Style.Triggers>
+              <DataTrigger Binding="{Binding StateView}" Value="good_results">
+                <Setter Property="TextBlock.FontSize" Value="48"></Setter>
+              </DataTrigger>
+              <DataTrigger Binding="{Binding StateView}" Value="waiting">
+                <Setter Property="TextBlock.FontSize" Value="14"></Setter>
+              </DataTrigger>
+            </Style.Triggers>
+          </Style>
+        </TextBlock.Style>
+        <Run Text="{Binding Msg}" />
+      </TextBlock>
+      <Rectangle Height="5" />
+      <TextBlock x:Name="textBlock1" Width="150" TextAlignment="Center" TextWrapping="Wrap"
+                 FontSize="10" Visibility="{Binding SubText, Converter={StaticResource BoolToVisConverter}}">
+        <Run Text="last reading:" />
+        <LineBreak />
+        <Run Text="{Binding LastReading, Converter={StaticResource DateTimeToStringConverter}}" />
+      </TextBlock>
+      <Button Content="OK" Height="22" HorizontalAlignment="Center" x:Name="button1"
+              VerticalAlignment="Center" Width="53" Margin="5"
+              Visibility="{Binding ShowButton, Converter={StaticResource BoolToVisConverter}}" />
+      <healthkick:ucSpinnerCogs HorizontalAlignment="Center"
+                                Visibility="{Binding ShowSpinner, Converter={StaticResource BoolToVisConverter}}">
+        <healthkick:ucSpinnerCogs.RenderTransform>
+          <ScaleTransform CenterX="10" CenterY="10" ScaleX="3" ScaleY="3"></ScaleTransform>
+        </healthkick:ucSpinnerCogs.RenderTransform>
+      </healthkick:ucSpinnerCogs>
+    </StackPanel>
+  </ControlTemplate>
+
+  <ControlTemplate x:Key="WaitingPanel">
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="Transparent">
+      <Rectangle x:Name="rectangle" Height="15" />
+      <TextBlock x:Name="textBlock" Width="150" TextAlignment="Center" TextWrapping="Wrap"
+                 FontSize="16">
+        <Run Text="{Binding Msg}" />
+      </TextBlock>
+      <Rectangle Height="5" />
+      <TextBlock x:Name="lastReadingTextBlock" Width="150" TextAlignment="Center"
+                 TextWrapping="Wrap" FontSize="10" FontStyle="Italic">
+        <Run Text="last reading:" />
+        <LineBreak />
+        <Run Text="{Binding LastReading, Converter={StaticResource DateTimeToStringConverter}}" />
+      </TextBlock>
+    </StackPanel>
+  </ControlTemplate>
+
+  <ControlTemplate x:Key="DownloadingPanel">
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" VerticalAlignment="Top"
+                Margin="0,95,0,0" Background="Transparent">
+      <TextBlock x:Name="readingTextBlock" Width="140" TextAlignment="Center" TextWrapping="Wrap"
+                 FontSize="14" Text="{Binding Msg}" />
+      <healthkick:ucSpinnerCogs HorizontalAlignment="Center" Visibility="Visible" Margin="0,20,0,0">
+        <healthkick:ucSpinnerCogs.RenderTransform>
+          <ScaleTransform CenterX="10" CenterY="10" ScaleX="3" ScaleY="3"></ScaleTransform>
+        </healthkick:ucSpinnerCogs.RenderTransform>
+      </healthkick:ucSpinnerCogs>
+    </StackPanel>
+  </ControlTemplate>
+
+  <ControlTemplate x:Key="ReadingPanel">
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="Transparent">
+      <Grid Width="150">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="40" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" x:Name="readingTextBlock" TextAlignment="Right"
+            FontSize="52" Text="{Binding LastReadingValue}" />
+        <TextBlock Grid.Column="1" VerticalAlignment="Bottom" Margin="5,0,0,10" FontSize="12"
+            TextAlignment="Left">
+          <Run>mm</Run>
+          <LineBreak />
+          <Run>ol</Run>
+        </TextBlock>
+      </Grid>
+      <Button Content="OK" Height="22" HorizontalAlignment="Center" x:Name="button1"
+              VerticalAlignment="Center" Width="53" Margin="5"
+              Visibility="{Binding ShowButton, Converter={StaticResource BoolToVisConverter}}"
+              Command="{Binding OnButtonClick}"/>
+    </StackPanel>
+  </ControlTemplate>
+
+  <ControlTemplate x:Key="NoNewReadingPanel">
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" VerticalAlignment="Top"
+        Margin="0,95,0,0" Background="Transparent">
+      <TextBlock x:Name="readingTextBlock" Width="140" TextAlignment="Center" TextWrapping="Wrap"
+          FontSize="14" Text="no new reading" />
+      <TextBlock x:Name="lastReadingTextBlock" Width="150" TextAlignment="Center"
+          TextWrapping="Wrap" FontSize="10" FontStyle="Italic">
+        <Run Text="last reading:" />
+        <LineBreak />
+        <Run Text="{Binding LastReading, Converter={StaticResource DateTimeToStringConverter}}" />
+      </TextBlock>
+    </StackPanel>
+  </ControlTemplate>
+
+  <ControlTemplate x:Key="ErrorPanel">
+    <StackPanel x:Name="stackPanel" HorizontalAlignment="Center" VerticalAlignment="Top"
+        Margin="0,95,0,0" Background="Transparent">
+      <TextBlock x:Name="readingTextBlock" Width="140" TextAlignment="Center" TextWrapping="Wrap"
+          FontSize="14" Text="error downloading reading" />
+      <TextBlock x:Name="lastReadingTextBlock" Width="150" TextAlignment="Center"
+          TextWrapping="Wrap" FontSize="10" FontStyle="Italic">
+        <Run Text="please contact developer" />
+      </TextBlock>
+      <healthkick:ucSpinnerCogs HorizontalAlignment="Center" Visibility="Visible" Margin="0,20,0,0">
+        <healthkick:ucSpinnerCogs.RenderTransform>
+          <ScaleTransform CenterX="10" CenterY="10" ScaleX="3" ScaleY="3"></ScaleTransform>
+        </healthkick:ucSpinnerCogs.RenderTransform>
+      </healthkick:ucSpinnerCogs>
+    </StackPanel>
+  </ControlTemplate>
+
+  <ControlTemplate x:Key="Sticker"></ControlTemplate>
+
+</ResourceDictionary>

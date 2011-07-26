@@ -24,6 +24,7 @@ namespace HealthKick
   public partial class MainWindow : Window
   {
     bool closing = false;
+    private Storyboard sb;
     public void CloseSticker(int ticks)
     {
       Storyboard sb = (Storyboard)Resources["Peel"];
@@ -43,6 +44,10 @@ namespace HealthKick
     public MainWindow()
     {
       InitializeComponent();
+      sb = (Storyboard)Resources["PeakBack"];
+      sb.Begin();
+      sb.Pause();
+      sb.Seek(TimeSpan.FromSeconds(0));
       this.MouseEnter += new MouseEventHandler(MainWindow_MouseEnter);
       this.MouseLeave += new MouseEventHandler(MainWindow_MouseLeave);
     }
@@ -61,22 +66,31 @@ namespace HealthKick
       if (!closing)
       {
         Storyboard sb = (Storyboard)Resources["Peak"];
+        //Storyboard.SetTarget(sb.Children.ElementAt(0) as DoubleAnimation, path1);
         sb.Begin();
       }
+    }
+
+    public void PlayStoryboard()
+    {
+      Storyboard sb = (Storyboard)FindResource("animate");
+      sb.Begin(stickerPanel);
     }
 
 
     protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
     {
       base.OnMouseLeftButtonDown(e);
-      DragMove();
+      //DragMove();
+      _vm.OnStickerClick(e);
     }
 
     protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
     {
       base.OnMouseRightButtonDown(e);
       //CloseSticker(0);
-      _vm.RunPythonCode();
+      _vm.HideAllStickers();
+      //_vm.RunPythonCode();
     }
 
     void sb_Completed(object sender, EventArgs e)
@@ -89,21 +103,23 @@ namespace HealthKick
     protected override void OnMouseDoubleClick(MouseButtonEventArgs e)
     {
       base.OnMouseDoubleClick(e);
-      _vm.NewSticker();
+      _vm.NewSticker(); // TODO remove
+      //PlayStoryboard();
     }
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
-      myGrid.DataContext = _vm.State;
+      myGrid.DataContext = _vm;
       // TODO MakeClickThrough();
+      sb.Resume();
     }
 
     private void Button1Click(object sender, RoutedEventArgs e)
     {
       //_vm.State.Color = "Blue";
-      //_vm.HideAllStickers();
+      _vm.HideAllStickers();
       //_vm.State.LastReading = DateTime.Now;
-      _vm.RunPythonCode();
+      //_vm.RunPythonCode();
     }
 
     public void SetViewModel(ViewModel.StickerViewModel stickerViewModel)
@@ -136,11 +152,7 @@ namespace HealthKick
     [DllImport("user32.dll")]
     public static extern int SetWindowLong(IntPtr hwnd, int index, int newStyle);
 
-
-
-
   }
-
 
 }
 

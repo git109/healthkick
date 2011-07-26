@@ -34,3 +34,5 @@ _UpgradeReport_Files/
 workspace.xml
 src/win/packages/*.*
 !src/win/packages/repositories.config
+*.ReSharper
+
